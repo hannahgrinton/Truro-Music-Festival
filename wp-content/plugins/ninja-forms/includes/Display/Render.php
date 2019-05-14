@@ -2,7 +2,7 @@
 
 final class NF_Display_Render
 {
-    protected static $render_instance_count = 0;
+    protected static $render_instance_count = array();
 
     protected static $loaded_templates = array(
         'app-layout',
@@ -358,13 +358,16 @@ final class NF_Display_Render
 
         if(!isset($_GET['nf_preview_form'])){
             /* Render Instance Fix */
-            if(self::$render_instance_count) {
-                $form_id .= '_' . self::$render_instance_count;
+            $instance_id = $form_id;
+            if( ! isset(self::$render_instance_count[$form_id]) ) self::$render_instance_count[$form_id] = 0;
+            if(self::$render_instance_count[$form_id]) {
+                $instance_id .= '_' . self::$render_instance_count[$form_id];
                 foreach( $fields as $id => $field ) {
-                    $fields[$id]['id'] .= '_' . self::$render_instance_count;
+                    $fields[$id]['id'] .= '_' . self::$render_instance_count[$form_id];
                 }
             }
-            self::$render_instance_count++;
+            self::$render_instance_count[$form_id]++;
+            $form_id = $instance_id;
             /* END Render Instance Fix */
         }
 
