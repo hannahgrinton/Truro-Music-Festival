@@ -6,3 +6,27 @@
  Template:     neve
  Version:      2.3.7
 */
+/*
+in admin-bar.php, there are changes made to the href for the home logo and the visit site link to link back to menu instead of the home page.
+
+Here:
+$wp_admin_bar->add_menu(
+		array(
+			'id'    => 'site-name',
+			'title' => $title,
+			'href'  => ( is_admin() || ! current_user_can( 'read' ) ) ? home_url( '/index.php/menu/' ) : admin_url(),
+		)
+  );
+  
+and Here:
+if ( is_admin() ) {
+		// Add an option to visit the site.
+		$wp_admin_bar->add_menu(
+			array(
+				'parent' => 'site-name',
+				'id'     => 'view-site',
+				'title'  => __( 'Visit Site' ),
+				'href'   => home_url( '/index.php/menu/' ),
+			)
+		);
+*/
