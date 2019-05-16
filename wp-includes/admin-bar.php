@@ -354,7 +354,7 @@ function wp_admin_bar_site_menu( $wp_admin_bar ) {
 		array(
 			'id'    => 'site-name',
 			'title' => $title,
-			'href'  => ( is_admin() || ! current_user_can( 'read' ) ) ? home_url( '/' ) : admin_url(),
+			'href'  => ( is_admin() || ! current_user_can( 'read' ) ) ? home_url( '/index.php/menu/' ) : admin_url(),
 		)
 	);
 
@@ -367,7 +367,7 @@ function wp_admin_bar_site_menu( $wp_admin_bar ) {
 				'parent' => 'site-name',
 				'id'     => 'view-site',
 				'title'  => __( 'Visit Site' ),
-				'href'   => home_url( '/' ),
+				'href'   => home_url( '/index.php/menu/' ),
 			)
 		);
 
