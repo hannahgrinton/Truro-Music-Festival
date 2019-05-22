@@ -3,7 +3,7 @@ Contributors: wpninjasllc, kstover, jameslaws, kbjohnson90, klhall1987, krmoorho
 Tags: form, forms, contact form, custom form, form builder, form creator, form manager, form creation, contact forms, custom forms, forms builder, forms creator, forms manager, forms creation, form administration,
 Requires at least: 5.0
 Tested up to: 5.2
-Stable tag: 3.4.12
+Stable tag: 3.4.13
 License: GPLv2 or later
 
 Drag and drop fields in an intuitive UI to create contact forms, email subscription forms, order forms, payment forms, send emails and more!
@@ -111,18 +111,29 @@ For help and video tutorials, please visit our website: [Ninja Forms Documentati
 
 == Upgrade Notice ==
 
-= 3.4.12 (13 May 2019) =
+= 3.4.13 (17 May 2019) =
 
 *Bugs:*
 
 * Updated our form load process to better account for reported excessive page load times.
 * Resolved an issue that was causing various add-ons to behave strangely when there were multiple forms on a single page.
+* Restored the display of some action settings that were being improperly hidden in the form builder. (e.g. Stripe metadata and Update Profile custom meta.)
+* Resolved an issue that sometimes caused submission to freeze when a required field was left empty.
+* Forms should no longer fail to display when a total field is referenced in a calculation.
 
 *Changes:*
 
 * "Light" opinionated styles are now enabled by default on new Ninja Forms installations.
 
 == Changelog ==
+
+= 3.4.13 (17 May 2019) =
+
+*Bugs:*
+
+* Restored the display of some action settings that were being improperly hidden in the form builder. (e.g. Stripe metadata and Update Profile custom meta.)
+* Resolved an issue that sometimes caused submission to freeze when a required field was left empty.
+* Forms should no longer fail to display when a total field is referenced in a calculation.
 
 = 3.4.12 (13 May 2019) =
 
