@@ -364,7 +364,29 @@ class CapabilityManager
 
 			if ( ! empty($_REQUEST['current']) ) { // don't process role update unless form variable is received
 				check_admin_referer('capsman-general-manager');
+				
+				$role = get_role($_REQUEST['current']);
+				$current_level = ($role) ? ak_caps2level($role->capabilities) : 0;
+				
 				$this->processAdminGeneral();
+				
+				$set_level = (isset($_POST['level'])) ? $_POST['level'] : 0;
+				
+				if ($set_level != $current_level) {
+					global $wp_roles, $wp_version;
+					
+					if ( version_compare($wp_version, '4.9', '>=') ) {
+						$wp_roles->for_site();
+					} else {
+						$wp_roles->reinit();
+					}
+					
+					foreach( get_users(array('role' => $_REQUEST['current'], 'fields' => 'ID')) as $ID ) {
+						$user = new WP_User($ID);
+						$user->get_role_caps();
+						$user->update_user_level_from_caps();
+					}
+				}
 			}
 		}
 	}

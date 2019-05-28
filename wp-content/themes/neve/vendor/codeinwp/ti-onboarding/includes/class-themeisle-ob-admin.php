@@ -156,6 +156,7 @@ class Themeisle_OB_Admin {
 			'contentImported' => $this->escape_bool_text( get_theme_mod( 'ti_content_imported', 'no' ) ),
 			'aboutUrl'        => esc_url( admin_url( 'themes.php?page=' . $theme->__get( 'stylesheet' ) . '-welcome' ) ),
 			'importSteps'     => $this->get_import_steps(),
+			'logUrl'          => Themeisle_OB_WP_Import_Logger::get_instance()->get_log_url(),
 		);
 
 		$is_onboarding = isset( $_GET['onboarding'] ) && $_GET['onboarding'] === 'yes';
@@ -193,9 +194,11 @@ class Themeisle_OB_Admin {
 			'widgets'                 => __( 'Widgets', 'neve' ),
 			'backup_disclaimer'       => __( 'We recommend you backup your website content before attempting a full site import.', 'neve' ),
 			'placeholders_disclaimer' => __( 'Due to copyright issues, some of the demo images will not be imported and will be replaced by placeholder images.', 'neve' ),
+			'unsplash_gallery_link'   => __( 'Here is our own collection of related images you can use for your site.', 'neve' ),
 			'import_done'             => __( 'Content was successfully imported. Enjoy your new site!', 'neve' ),
 			'pro_demo'                => __( 'Available in the PRO version', 'neve' ),
 			'copy_error_code'         => __( 'Copy error code', 'neve' ),
+			'download_error_log'      => __( 'Download error log', 'neve' ),
 			'error_report'            => sprintf(
 				__( 'Hi! It seems there is a configuration issue with your server that\'s causing the import to fail. Please %1$s with us with the error code below, so we can help you fix this.', 'neve' ),
 				sprintf( '<a href="https://themeisle.com/contact">%1$s <i class="dashicons dashicons-external"></i></a>', __( 'get in touch', 'neve' ) )
