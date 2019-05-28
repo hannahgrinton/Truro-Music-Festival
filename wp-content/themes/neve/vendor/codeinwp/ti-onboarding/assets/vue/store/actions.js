@@ -157,7 +157,7 @@ const importThemeMods = function ({commit, state}, data) {
     method: 'POST',
     headers: {'X-WP-Nonce': themeisleSitesLibApi.nonce},
     body: {
-      'data': data.themeMods
+      'data': data.themeMods,
     },
     responseType: 'json',
     emulateJSON: true

@@ -37,6 +37,13 @@ class Themeisle_OB_Theme_Mods_Importer {
 	private $theme_mods = array();
 
 	/**
+	 * Options array.
+	 *
+	 * @var array
+	 */
+	private $options = array();
+
+	/**
 	 * Import theme mods.
 	 *
 	 * @param WP_REST_Request $request the async request.
@@ -92,6 +99,18 @@ class Themeisle_OB_Theme_Mods_Importer {
 				$value = false;
 			}
 			set_theme_mod( $mod, $value );
+		}
+
+		$this->options = isset( $data['wp_options'] ) ? $data['wp_options'] : array();
+		foreach ( $this->options as $key => $value ) {
+			if ( $value === 'true' ) {
+				$value = true;
+			}
+
+			if ( $value === 'false' ) {
+				$value = false;
+			}
+			update_option( $key, $value );
 		}
 
 		// Set nav menu locations.

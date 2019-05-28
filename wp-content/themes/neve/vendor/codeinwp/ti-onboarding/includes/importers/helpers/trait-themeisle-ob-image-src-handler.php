@@ -24,6 +24,10 @@ trait Themeisle_OB_Image_Src_Handler {
 	public function replace_image_urls( $markup ) {
 		// Get all slashed and un-slashed urls.
 		$old_urls = $this->get_urls_to_replace( $markup );
+		if ( ! is_array( $old_urls ) || empty( $old_urls ) ) {
+			return $markup;
+		}
+
 		// Create an associative array.
 		$urls = array_combine( $old_urls, $old_urls );
 		// Unslash values of associative array.
@@ -43,6 +47,11 @@ trait Themeisle_OB_Image_Src_Handler {
 	 */
 	private function get_urls_to_replace( $markup ) {
 		$regex = '/(?:http(?:s?):)(?:[\/\\\\\\\\|.|\w|\s|-])*\.(?:' . implode( '|', array_keys( $this->extensions ) ) . ')/m';
+
+		if ( ! is_string( $markup ) ) {
+			return $markup;
+		}
+
 		preg_match_all( $regex, $markup, $urls );
 
 		$urls = array_map(

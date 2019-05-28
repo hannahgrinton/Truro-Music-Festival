@@ -1,3 +1,18 @@
+## [3.0.7](https://github.com/Codeinwp/themeisle-sdk/compare/v3.0.6...v3.0.7) (2019-05-27)
+
+
+### Bug Fixes
+
+* change store url with the new domain ([6bdbe1e](https://github.com/Codeinwp/themeisle-sdk/commit/6bdbe1e))
+
+## [3.0.6](https://github.com/Codeinwp/themeisle-sdk/compare/v3.0.5...v3.0.6) (2019-05-21)
+
+
+### Bug Fixes
+
+* build php version for deployment stage ([a785699](https://github.com/Codeinwp/themeisle-sdk/commit/a785699))
+* uninstall feedback should load only on the proper pages ([259e78f](https://github.com/Codeinwp/themeisle-sdk/commit/259e78f))
+
 ## [3.0.5](https://github.com/Codeinwp/themeisle-sdk/compare/v3.0.4...v3.0.5) (2019-03-07)
 
 

@@ -3,7 +3,7 @@ Contributors: publishpress, kevinB, stevejburge, andergmartins
 Tags: role, capabilities, post types, taxonomies, editor, network, multisite
 Requires at least: 4.1
 Tested up to: 5.2
-Stable tag: 1.7.4
+Stable tag: 1.7.5
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -69,6 +69,9 @@ Keep in mind that this plugin's main purpose is to expose switches (defined capa
 * Feel free to <a href="https://publishpress.com/contact/">submit a help ticket</a> if you can't find an answer in the documentation or forum here. 
 
 == Changelog ==
+
+= 1.7.5 - 24 May 2019 =
+  * Fixed : Users' inclusion or non-inclusion in Authors dropdown was not updated based on role edit (non-zero level setting)
 
 = 1.7.4 - 1 May 2019 =
   * Fixed : On some sites, capabilities added dynamically by other code were forced into stored role definition (and could not be removed).
